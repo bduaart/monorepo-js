@@ -23,8 +23,5 @@
   "scripts": {
     "test": "node ./__tests__/random-string.test.js"
   },
-  "dependencies": {
-    "random-number": "file:../random-number"
-  },
   "gitHead": "df31a05eb1af3affb628170448e247fee471ec8e"
 }
