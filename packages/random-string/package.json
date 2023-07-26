@@ -22,5 +22,8 @@
   ],
   "scripts": {
     "test": "node ./__tests__/random-string.test.js"
+  },
+  "dependencies": {
+    "random-number": "file:../random-number"
   }
 }

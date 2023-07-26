@@ -1,5 +1,6 @@
 "use strict";
 
+const randomNumber = require("@bduaart/random-number");
 const charactersSet = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 
 // 1
@@ -9,7 +10,7 @@ function randomString(len = 5) {
           charactersSet.charAt(Math.floor(Math.random() * charactersSet.length))
       )
       .join("");
-  return str;
+  return randomNumber(str);
 }
 
 // 2
