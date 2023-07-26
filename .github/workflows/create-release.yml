@@ -37,7 +37,7 @@ jobs:
           node-version: 18
           registry-url: https://npm.pkg.github.com/
           scope: '@bduaart'
-      - run: npm install && lerna publish ${{ env.TAG }} -y
+      - run: yarn install && lerna publish ${{ env.TAG }} -y
         env:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
   release:
