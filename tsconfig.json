@@ -14,5 +14,5 @@
     "incremental": true
   },
   "include": ["**/**/*"],
-  "exclude": [".git", "build", "tests", "node_modules"]
+  "exclude": [".git", "build", "test", "node_modules"]
 }
