@@ -465,7 +465,7 @@
     regenerator-runtime "^0.13.11"
 
 "@bduaart/common-dependencies@file:/home/bduart/test/packages/common-dependencies":
-  version "1.0.1"
+  version "1.0.3"
   resolved "file:packages/common-dependencies"
   dependencies:
     "@aws-sdk/client-sqs" "^3.377.0"
