@@ -16,7 +16,8 @@
     "lint:fix": "yarn lint --fix",
     "format": "prettier --check \"**/*.+(js|ts|json|md)\"",
     "format:fix": "prettier --write \"**/*.+(js|ts|json|md)\"",
-    "lint-staged": "lint-staged"
+    "lint-staged": "lint-staged",
+    "build": "../node_modules/.bin/tsc"
   },
   "lint-staged": {
     "*.js": [
