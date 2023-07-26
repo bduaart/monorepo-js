@@ -14,7 +14,7 @@
     "lib"
   ],
   "publishConfig": {
-    "access": "public"
+    "registry": "https://npm.pkg.github.com/bduaart"
   },
   "repository": {
     "type": "git",
