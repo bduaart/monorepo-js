@@ -488,8 +488,6 @@
 "@bduaart/random-string@file:/home/bduart/test/packages/random-string":
   version "4.0.0"
   resolved "file:packages/random-string"
-  dependencies:
-    random-number "file:../random-number"
 
 "@hutson/parse-repository-url@^3.0.0":
   version "3.0.2"
