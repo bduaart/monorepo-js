@@ -1,0 +1,42 @@
+name: CI-Validate
+on:
+  pull_request:
+    branches: [ main, release, develop ]
+
+jobs:
+
+  validate:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./
+
+    steps:
+      - name: Show git actor
+        run:
+          echo ${{ github.actor }}
+
+      - name: Check out code
+        uses: actions/checkout@v3
+
+      - name: Set up Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - uses: actions/cache@v3
+        with:
+          path: '**/node_modules'
+          key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
+
+#      - name: Install dependencies
+#        run: npm install
+#
+#      - name: Lint
+#        run: npm lint
+#
+#      - name: Format
+#        run: npm format
+#
+#      - name: Build
+#        run: npm build
