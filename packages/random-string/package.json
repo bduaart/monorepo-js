@@ -13,6 +13,10 @@
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/bduaart"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bduaart/monorepo-js.git"
+  },
   "files": [
     "lib"
   ],
