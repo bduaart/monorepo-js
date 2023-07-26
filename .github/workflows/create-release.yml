@@ -25,6 +25,8 @@ jobs:
           echo "tag=$TAG" >> $GITHUB_OUTPUT
 
   publish-package:
+    needs:
+      - TAG
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -58,3 +60,4 @@ jobs:
           tag_name: v${{ env.TAG }}
           generate_release_notes: true
           token: ${{ secrets.NODE_PACKAGE_TOKEN }}
+          github_token: ${{ secrets.NODE_PACKAGE_TOKEN }}
