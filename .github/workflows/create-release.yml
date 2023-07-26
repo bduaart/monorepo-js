@@ -27,6 +27,8 @@ jobs:
   publish-package:
     needs:
       - TAG
+    env:
+      TAG: ${{ needs.TAG.outputs.tag }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -35,7 +37,7 @@ jobs:
           node-version: 18
           registry-url: https://npm.pkg.github.com/
           scope: '@bduaart'
-      - run: npm install && lerna publish v${{ env.TAG }} -y
+      - run: npm install && lerna publish ${{ env.TAG }} -y
         env:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
   release:
@@ -48,10 +50,10 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
-#      - name: Push Tag
-#        uses: mathieudutour/github-tag-action@v6.1
-#        with:
-#          github_token: ${{ secrets.NODE_PACKAGE_TOKEN }}
+      - name: Push Tag
+        uses: mathieudutour/github-tag-action@v6.1
+        with:
+          github_token: ${{ secrets.NODE_PACKAGE_TOKEN }}
 
       - name: Create Release
         uses: softprops/action-gh-release@v1
@@ -60,4 +62,3 @@ jobs:
           tag_name: v${{ env.TAG }}
           generate_release_notes: true
           token: ${{ secrets.NODE_PACKAGE_TOKEN }}
-          github_token: ${{ secrets.NODE_PACKAGE_TOKEN }}
