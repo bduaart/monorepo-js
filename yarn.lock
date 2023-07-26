@@ -465,7 +465,7 @@
     regenerator-runtime "^0.13.11"
 
 "@bduaart/common-dependencies@file:/home/bduart/test/packages/common-dependencies":
-  version "1.0.0"
+  version "1.0.1"
   resolved "file:packages/common-dependencies"
   dependencies:
     "@aws-sdk/client-sqs" "^3.377.0"
@@ -476,7 +476,7 @@
     moment "^2.29.4"
 
 "@bduaart/random-date@file:/home/bduart/test/packages/random-date":
-  version "1.0.0"
+  version "1.0.1"
   resolved "file:packages/random-date"
 
 "@bduaart/random-number@file:/home/bduart/test/packages/random-number":
