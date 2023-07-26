@@ -27,6 +27,7 @@
     "url": "https://github.com/bduaart/monorepo-js/issues"
   },
   "dependencies": {
+    "@aws-sdk/client-sqs": "^3.377.0",
     "axios": "^1.4.0",
     "date-fns-tz": "^2.0.0",
     "dayjs": "^1.11.9",
