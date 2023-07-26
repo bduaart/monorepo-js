@@ -465,7 +465,7 @@
     regenerator-runtime "^0.13.11"
 
 "@bduaart/common-dependencies@file:/home/bduart/test/packages/common-dependencies":
-  version "0.6.0"
+  version "1.0.0"
   resolved "file:packages/common-dependencies"
   dependencies:
     "@aws-sdk/client-sqs" "^3.377.0"
@@ -475,14 +475,18 @@
     express "^4.18.2"
     moment "^2.29.4"
 
+"@bduaart/random-date@file:/home/bduart/test/packages/random-date":
+  version "1.0.0"
+  resolved "file:packages/random-date"
+
 "@bduaart/random-number@file:/home/bduart/test/packages/random-number":
-  version "0.6.0"
+  version "1.0.0"
   resolved "file:packages/random-number"
   dependencies:
     moment "^2.29.4"
 
 "@bduaart/random-string@file:/home/bduart/test/packages/random-string":
-  version "0.6.0"
+  version "1.0.0"
   resolved "file:packages/random-string"
   dependencies:
     random-number "file:../random-number"
