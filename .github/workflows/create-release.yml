@@ -46,30 +46,29 @@ jobs:
           git config user.email "$(git log -n 1 --pretty=format:%ae)"
           git remote set-url origin https://$GITHUB_ACTOR:$GITHUB_TOKEN@github.com/bduaart/monorepo-js
           yarn install
-          lerna publish ${{ env.TAG }} --yes
+          lerna version ${{ env.TAG }} --conventional-commits --create-release github --yes
         env:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-  release:
-    needs:
-      - TAG
-    runs-on: ubuntu-latest
-    env:
-      TAG: ${{ needs.TAG.outputs.tag }}
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-
-      - name: Push Tag
-        uses: mathieudutour/github-tag-action@v6.1
-        with:
-          github_token: ${{ secrets.NODE_PACKAGE_TOKEN }}
-
-      - name: Create Release
-        uses: softprops/action-gh-release@v1
-        with:
-          name: v${{ env.TAG }}
-          tag_name: v${{ env.TAG }}
-          generate_release_notes: true
-          token: ${{ secrets.NODE_PACKAGE_TOKEN }}
+#  release:
+#    needs:
+#      - TAG
+#    runs-on: ubuntu-latest
+#    env:
+#      TAG: ${{ needs.TAG.outputs.tag }}
+#    steps:
+#      - name: Checkout
+#        uses: actions/checkout@v3
+#
+#      - name: Push Tag
+#        uses: mathieudutour/github-tag-action@v6.1
+#        with:
+#          github_token: ${{ secrets.NODE_PACKAGE_TOKEN }}
+#
+#      - name: Create Release
+#        uses: softprops/action-gh-release@v1
+#        with:
+#          name: v${{ env.TAG }}
+#          tag_name: v${{ env.TAG }}
+#          generate_release_notes: true
+#          token: ${{ secrets.NODE_PACKAGE_TOKEN }}
