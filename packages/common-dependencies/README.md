@@ -5,7 +5,7 @@
 ## Usage
 
 ```
-const commonDependencies = require('common-dependencies');
+const dasdasdasdasdasdas dadasndencies = require('common-dependencies');
 
 // TODO: DEMONSTRATE API
 ```
