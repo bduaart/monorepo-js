@@ -45,8 +45,14 @@ jobs:
           git config user.name "$(git log -n 1 --pretty=format:%an)"
           git config user.email "$(git log -n 1 --pretty=format:%ae)"
           git remote set-url origin https://$GITHUB_ACTOR:$GITHUB_TOKEN@github.com/bduaart/monorepo-js
+      - run: |          
           yarn install
+      - run: |
           lerna version ${{ env.TAG }} --conventional-commits --create-release github --yes
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - run: |
           lerna publish ${{ env.TAG }} --yes
         env:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
