@@ -47,6 +47,7 @@ jobs:
           git remote set-url origin https://$GITHUB_ACTOR:$GITHUB_TOKEN@github.com/bduaart/monorepo-js
           yarn install
           lerna version ${{ env.TAG }} --conventional-commits --create-release github --yes
+          lerna publish ${{ env.TAG }} --yes
         env:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
