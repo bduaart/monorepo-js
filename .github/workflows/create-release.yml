@@ -28,10 +28,14 @@ jobs:
     needs:
       - TAG
     env:
+      NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
       TAG: ${{ needs.TAG.outputs.tag }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+        with:
+          fetch-depth: "0"
+          token: ${{ secrets.GITHUB_TOKEN }}
       - uses: actions/setup-node@v3
         with:
           node-version: 18
@@ -40,9 +44,13 @@ jobs:
       - run: |
           git config user.name "$(git log -n 1 --pretty=format:%an)"
           git config user.email "$(git log -n 1 --pretty=format:%ae)"
-          lerna publish ${{ env.TAG }} -y
+          git remote set-url origin https://$GITHUB_ACTOR:$GITHUB_TOKEN@github.com/bduaart/monorepo-js
+          yarn install
+          lerna publish ${{ env.TAG }} --yes
         env:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   release:
     needs:
       - TAG
