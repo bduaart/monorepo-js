@@ -37,7 +37,10 @@ jobs:
           node-version: 18
           registry-url: https://npm.pkg.github.com/
           scope: '@bduaart'
-      - run: yarn install && lerna publish ${{ env.TAG }} -y
+      - run: |
+          git config user.name "$(git log -n 1 --pretty=format:%an)"
+          git config user.email "$(git log -n 1 --pretty=format:%ae)"
+          lerna publish ${{ env.TAG }} -y
         env:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
   release:
