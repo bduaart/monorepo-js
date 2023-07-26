@@ -25,5 +25,8 @@
   },
   "bugs": {
     "url": "https://github.com/bduaart/monorepo-js/issues"
+  },
+  "dependencies": {
+    "moment": "^2.29.4"
   }
 }
