@@ -3,5 +3,5 @@
 module.exports = commonDependencies;
 
 function commonDependencies() {
-  return 'Hello start commonDependencies';
+  return 'teste start commonDependencies';
 }
